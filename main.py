@@ -64,6 +64,8 @@ for i in range(len(library_path)):
         continue
 
     print(f'[{i}]: {full_path}')
-
-    with open(full_path, 'wb') as f:
-        f.write(audio)
+    try:
+        with open(full_path, 'wb') as f:
+            f.write(audio)
+    except FileNotFoundError:
+        print("PROBLEM WITH PATH: " + full_path)
